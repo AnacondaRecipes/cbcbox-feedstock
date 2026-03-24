@@ -13,11 +13,11 @@ source:
 build:
   number: 0
   #skip: true  # [py==314]
-  skip: true  # [py==314 or not linux64]
+  skip: true  # [not linux64 or py!=311]
     #script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   script: "{{ PYTHON }} -m pip install *.whl -vv --no-deps"
   ignore_run_exports:
-    - python
+    - python 
   missing_dso_whitelist:
     - libpthread.so.0
     - libm.so.6
@@ -28,12 +28,12 @@ build:
 
 requirements:
   host:
-    - python
+    - python 3.11.*
     - pip
       #- setuptools
       #- wheel
   run:
-    - python
+    - python >=3.11,<3.12
       #- libgcc-ng
       #- libstdcxx-ng
     - libgcc
