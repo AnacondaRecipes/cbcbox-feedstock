@@ -39,7 +39,7 @@ requirements:
     - libgcc
     - libstdcxx
     #- libzlib
-    - zlib ==1.2.13
+    - zlib >=1.2.13,<2.0.0a0
 
 test:
   imports:
