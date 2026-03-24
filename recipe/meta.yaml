@@ -38,7 +38,8 @@ requirements:
       #- libstdcxx-ng
     - libgcc
     - libstdcxx
-    - libzlib
+    #- libzlib
+    - zlib ==1.2.13
 
 test:
   imports:
