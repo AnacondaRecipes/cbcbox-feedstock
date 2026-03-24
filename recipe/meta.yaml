@@ -38,7 +38,7 @@ requirements:
       #- libstdcxx-ng
     - libgcc
     - libstdcxx
-    #- libzlib
+    - libzlib
 
 test:
   imports:
