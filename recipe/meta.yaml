@@ -23,7 +23,7 @@ requirements:
   run:
     - python >=3.10
     - cffi >=1.15
-      #- cbcbox >=2.929
+    - cbcbox >=2.929
 
 test:
   imports:
