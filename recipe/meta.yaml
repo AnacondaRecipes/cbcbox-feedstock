@@ -1,49 +1,33 @@
-{% set name = "cbcbox" %}
-{% set version = "2.913" %}
+{% set name = "mip" %}
+{% set version = "1.17.6" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  #url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  url: https://files.pythonhosted.org/packages/4f/ef/edd1b2f944e694c830e2c5f4e1347a45e4d7ab3939f53d5dc67c837622b9/cbcbox-2.913-py3-none-manylinux2014_x86_64.whl
-  sha256: b1f8b4dfd1b3cee58fcb2916231ea210e7e323c04199e20a4eddfc4d1df97a7a
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/mip-{{ version }}.tar.gz
+  sha256: 9da8074b80bd3ef788513d5a214ef832916d82aa66487da11a49c7da9f89d270
 
 build:
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
-  #skip: true  # [py==314]
-  skip: true  # [not linux64 or py!=311]
-    #script: "{{ PYTHON }} -m pip install . --no-deps -vv"
-  script: "{{ PYTHON }} -m pip install *.whl -vv --no-deps"
-  ignore_run_exports:
-    - python 
-  missing_dso_whitelist:
-    - libpthread.so.0
-    - libm.so.6
-    - libc.so.6
-    - librt.so.1
-    - libdl.so.2
-    - ld-linux-x86-64.so.2
 
 requirements:
   host:
-    - python 3.11.*
+    - python >=3.10
+    - setuptools
+    - setuptools-scm
     - pip
-      #- setuptools
-      #- wheel
   run:
-    - python >=3.11,<3.12
-      #- libgcc-ng
-      #- libstdcxx-ng
-    - libgcc
-    - libstdcxx
-    #- libzlib
-    - zlib >=1.2.13,<2.0.0a0
+    - python >=3.10
+    - cffi >=1.15
+      #- cbcbox >=2.929
 
 test:
   imports:
-    - cbcbox
+    - mip
   commands:
     - pip check
   requires:
