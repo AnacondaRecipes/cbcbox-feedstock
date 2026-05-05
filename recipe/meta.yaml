@@ -12,7 +12,7 @@ source:
 build:
   number: 0
   skip: true  # [not win]
-  script: "{{ PYTHON }} -m pip install {{ name }}-{{ version }}-py3-none-win_amd64.whl -vv --no-deps"
+  script: "{{ PYTHON }} -m pip install {{ name }}-{{ version }}-py3-none-win_amd64.whl -vv --no-deps --no-build-isolation"
   ignore_run_exports:
     - python
   missing_dso_whitelist:
@@ -21,10 +21,12 @@ build:
 
 requirements:
   host:
-    - python 3.11.*
+    - python
     - pip
+    - zlib >=1.2.13,<2.0.0a0
   run:
     - python
+    - pip
     - zlib >=1.2.13,<2.0.0a0
 
 test:
@@ -39,7 +41,8 @@ about:
   home: https://github.com/h-g-s/cbcbox
   summary: Binary distribution of the CBC MILP solver (COIN-OR Branch and Cut)
   description: High-performance, self-contained Python distribution of the CBC MILP solver (COIN-OR Branch and Cut), built from the latest COIN-OR master branch.
-  license: MIT
+  license_family: EPL
+  license: EPL 2.0
   dev_url: https://github.com/h-g-s/cbcbox
   doc_url: https://github.com/h-g-s/cbcbox/tree/master/docs
 
