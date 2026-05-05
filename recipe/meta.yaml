@@ -41,8 +41,8 @@ about:
   home: https://github.com/h-g-s/cbcbox
   summary: Binary distribution of the CBC MILP solver (COIN-OR Branch and Cut)
   description: High-performance, self-contained Python distribution of the CBC MILP solver (COIN-OR Branch and Cut), built from the latest COIN-OR master branch.
-  license_family: EPL
-  license: EPL 2.0
+  #license_family: EPL
+  #license: EPL 2.0
   dev_url: https://github.com/h-g-s/cbcbox
   doc_url: https://github.com/h-g-s/cbcbox/tree/master/docs
 
