@@ -6,39 +6,22 @@ package:
   version: {{ version }}
 
 source:
-  #url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   url: https://files.pythonhosted.org/packages/0c/85/2fef9c7c3054ebfb9b0e84fabbeac776a18514b025efa5abd768c889f560/cbcbox-2.929-py3-none-win_amd64.whl
   sha256: 0a91420befb965ec1763aab62d7908d3a89a51af845e2a4e05c09d99a67f1151
 
 build:
   number: 0
-  #skip: true  # [py==314]
   skip: true  # [not win]
-    #script: "{{ PYTHON }} -m pip install . --no-deps -vv"
-  script: "{{ PYTHON }} -m pip install *.whl -vv --no-deps"
+  script: "{{ PYTHON }} -m pip install {{ name }}-{{ version }}-py3-none-win_amd64.whl -vv --no-deps"
   ignore_run_exports:
-    - python 
-  #missing_dso_whitelist:
-  #  - libpthread.so.0
-  #  - libm.so.6
-  #  - libc.so.6
-  #  - librt.so.1
-  #  - libdl.so.2
-  #  - ld-linux-x86-64.so.2
+    - python
 
 requirements:
   host:
     - python 3.11.*
     - pip
-      #- setuptools
-      #- wheel
   run:
-    - python 
-      #- libgcc-ng
-      #- libstdcxx-ng
-    - libgcc
-    - libstdcxx
-    #- libzlib
+    - python
     - zlib >=1.2.13,<2.0.0a0
 
 test:
@@ -51,13 +34,11 @@ test:
 
 about:
   home: https://github.com/h-g-s/cbcbox
-  summary: "Short description of the cbcbox package."
+  summary: Binary distribution of the CBC MILP solver (COIN-OR Branch and Cut)
+  description: High-performance, self-contained Python distribution of the CBC MILP solver (COIN-OR Branch and Cut), built from the latest COIN-OR master branch.
+  license: MIT
   dev_url: https://github.com/h-g-s/cbcbox
   doc_url: https://github.com/h-g-s/cbcbox/tree/master/docs
-  summary: Binary distribution of the CBC MILP solver (COIN-OR Branch and Cut)
-  description: high-performance, self-contained Python distribution of the CBC MILP solver (COIN-OR Branch and Cut), built from the latest COIN-OR master branch.
-  license: MIT
-    #license_file: LICENSE
 
 extra:
   skip-lints:
