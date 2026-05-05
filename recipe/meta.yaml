@@ -17,6 +17,7 @@ build:
     - python
   missing_dso_whitelist:
     - "*/lib*.dll"
+    - "*/zlib1.dll"
 
 requirements:
   host:
