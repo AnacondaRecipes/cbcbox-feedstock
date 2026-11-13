@@ -1,23 +1,23 @@
 {% set name = "cbcbox" %}
-{% set version = "2.929" %}
+{% set version = "2.937" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://files.pythonhosted.org/packages/0c/85/2fef9c7c3054ebfb9b0e84fabbeac776a18514b025efa5abd768c889f560/cbcbox-2.929-py3-none-win_amd64.whl
-  sha256: 0a91420befb965ec1763aab62d7908d3a89a51af845e2a4e05c09d99a67f1151
+  url: https://files.pythonhosted.org/packages/34/19/d866081b826f223ba3d531eef8f9e0868b6d767a961c095ba1ab7ee9e90b/cbcbox-2.937-py3-none-manylinux2014_x86_64.whl
+  sha256: f78cba63a977c40b696c235e32468837207605fbae05e43b21ddaacd98910096
 
 build:
   number: 0
-  skip: true  # [not win]
-  script: "{{ PYTHON }} -m pip install {{ name }}-{{ version }}-py3-none-win_amd64.whl -vv --no-deps --no-build-isolation"
+  #skip: true  # [not win]
+  script: "{{ PYTHON }} -m pip install {{ name }}-{{ version }}-py3-none-manylinux2014_x86_64.whl -vv --no-deps --no-build-isolation"
   ignore_run_exports:
     - python
-  missing_dso_whitelist:
-    - "*/lib*.dll"
-    - "*/zlib1.dll"
+  #missing_dso_whitelist:
+  #  - "*/lib*.dll"
+  #  - "*/zlib1.dll"
 
 requirements:
   host:
@@ -52,6 +52,6 @@ extra:
     - avoid_noarch
   anaconda-services:
     ref: https://anaconda.zendesk.com/agent/tickets/110080
-    reason: Client request
+    reason: Dependency for mip
   recipe-maintainers:
     - ianaobi
