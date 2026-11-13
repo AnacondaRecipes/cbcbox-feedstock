@@ -15,9 +15,16 @@ build:
   script: "{{ PYTHON }} -m pip install {{ name }}-{{ version }}-py3-none-manylinux2014_x86_64.whl -vv --no-deps --no-build-isolation"
   ignore_run_exports:
     - python
-  #missing_dso_whitelist:
-  #  - "*/lib*.dll"
-  #  - "*/zlib1.dll"
+  missing_dso_whitelist:
+    - "*/libm.so.6"
+    - "*/libdl.so.2"
+    - "*/libc.so.6"
+    - "*/libpthread.so.0"
+    - "*/librt.so.1"
+    - "*/ld-linux-x86-64.so.2"
+    - "*/ld-linux-x86-64.so.2"
+    #- "*/lib*.dll"
+    #- "*/zlib1.dll"
 
 requirements:
   host:
