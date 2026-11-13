@@ -30,11 +30,11 @@ requirements:
   host:
     - python
     - pip
-    #- zlib >=1.2.13,<2.0.0a0
+    - zlib >=1.2.13,<2.0.0a0
   run:
     - python
     - pip
-    #- zlib >=1.2.13,<2.0.0a0
+    - zlib >=1.2.13,<2.0.0a0
     - libgcc >=14
     - libstdcxx >=14
 
