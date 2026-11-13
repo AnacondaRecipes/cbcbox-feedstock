@@ -30,11 +30,13 @@ requirements:
   host:
     - python
     - pip
-    - zlib >=1.2.13,<2.0.0a0
+    #- zlib >=1.2.13,<2.0.0a0
   run:
     - python
     - pip
-    - zlib >=1.2.13,<2.0.0a0
+    #- zlib >=1.2.13,<2.0.0a0
+    - libgcc >=14
+    - libstdcxx >=14
 
 test:
   imports:
@@ -55,7 +57,7 @@ about:
 
 extra:
   skip-lints:
-    - host_section_needs_exact_pinnings
+    #- host_section_needs_exact_pinnings
     - avoid_noarch
   anaconda-services:
     ref: https://anaconda.zendesk.com/agent/tickets/110080
